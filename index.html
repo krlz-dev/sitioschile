@@ -189,17 +189,33 @@
             font-size: 2rem;
             color: white;
         }
+
+        /* Navbar styles */
+        #mainNavbar {
+            transition: background 0.3s, backdrop-filter 0.3s;
+            background: transparent;
+        }
+
+        #mainNavbar.scrolled {
+            background: rgba(30, 64, 175, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        #mainNavbar .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+            background: rgba(30, 64, 175, 0.8);
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(30, 64, 175, 0.95); backdrop-filter: blur(10px);">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand fw-bold fs-4" href="#">
                 <i class="bi bi-code-slash me-2"></i>SitiosChile
             </a>
-            <button class="navbar-toggler border-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -531,13 +547,11 @@
     <!-- Navbar background on scroll -->
     <script>
         window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.getElementById('mainNavbar');
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(30, 64, 175, 0.95)';
-                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.background = 'transparent';
-                navbar.style.backdropFilter = 'none';
+                navbar.classList.remove('scrolled');
             }
         });
     </script>

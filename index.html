@@ -205,6 +205,27 @@
             border-color: rgba(255,255,255,0.5);
             background: rgba(30, 64, 175, 0.8);
         }
+
+        /* Mobile menu glass effect */
+        @media (max-width: 991.98px) {
+            #mainNavbar .navbar-collapse {
+                background: rgba(30, 64, 175, 0.95);
+                backdrop-filter: blur(10px);
+                margin-top: 1rem;
+                padding: 1rem;
+                border-radius: 12px;
+            }
+
+            #mainNavbar .navbar-collapse .nav-link {
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
+                transition: background 0.2s;
+            }
+
+            #mainNavbar .navbar-collapse .nav-link:hover {
+                background: rgba(255,255,255,0.1);
+            }
+        }
     </style>
 </head>
 <body>
